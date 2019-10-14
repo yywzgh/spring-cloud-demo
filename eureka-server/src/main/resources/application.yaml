@@ -3,3 +3,5 @@ spring:
     name: @project.artifactId@
   profiles:
     active: docker
+    
+ #docker run -dt -e "--spring_profiles_active=dev" --volume /etc/localtime:/etc/localtime -p 8081:8081 --name eureka-server yywz/eureka-server
