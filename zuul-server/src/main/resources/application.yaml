@@ -1,0 +1,17 @@
+server:
+  port: 8085
+  
+spring:
+  application: 
+    name: zuul-server
+
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://10.25.6.201:8081/eureka/
+
+zuul:
+ routes:
+   hello-service:
+     path: /hello-service/**
+     serviceId: http://10.25.6.201:8082/hello
