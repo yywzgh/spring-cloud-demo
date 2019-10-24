@@ -3,5 +3,12 @@ spring:
     name: @project.artifactId@
   profiles:
     active: dev
-    
+ 
+ 
+#指定log配置
+#需要把日志传到kafka用文件log4j2-kafka.xml，如果不用则使用log4j2-pro.xml
+logging:
+ config: classpath:log4j2-kafka.xml
+ 
+     
  #docker run -dt -e "--spring_profiles_active=dev" --volume /etc/localtime:/etc/localtime -p 8081:8081 --name eureka-server yywz/eureka-server
