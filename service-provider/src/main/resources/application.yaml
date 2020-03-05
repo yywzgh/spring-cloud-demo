@@ -1,21 +1,37 @@
+info:
+  app:
+    name: service-provider
+  company:
+    name: springcloud
+  build: 
+    artifactId: ${project.artifactId}
+    version: ${project.version}
+    
 server:
   # 服务端口号
   port: 8082
 spring:
   application:
     # 服务名称 - 服务之间使用名称进行通讯
-    name: client
+    name: service-provider
   zipkin:
     base-url: http://127.0.0.1:8010
   sleuth:
     sampler:
       probability: 1.0
+  rabbitmq:
+    host: 10.25.16.253
+    port: 5672
+    username: admin
+    password: admin-jw
+    #虚拟host 可以不设置,使用server默认host
+    #virtual-host: JCcccHost
 
 eureka:
   client:
     service-url:
       # 填写注册中心服务器地址
-      defaultZone: http://127.0.0.1:8081/eureka
+      defaultZone: http://jwcloud:jwcloud@10.25.16.253:7776/eureka
     # 是否需要将自己注册到注册中心
     register-with-eureka: true
     # 是否需要搜索服务信息
